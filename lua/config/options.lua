@@ -12,6 +12,6 @@ return {
   opts = {
     open_mapping = [[<leader>ft]], -- default toggle key
     direction = "horizontal",      
-    start_in_insert = true,        -- forces insert mode when opening
+    start_in_insert = false,        
   },
 }
