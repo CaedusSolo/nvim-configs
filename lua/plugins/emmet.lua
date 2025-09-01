@@ -1,29 +1,28 @@
 return {
   "mattn/emmet-vim",
-  ft = { "html", "css", "javascriptreact", "typescriptreact", "typescript", "javascript" },
+  ft = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact" },
   init = function()
-    vim.g.user_emmet_leader_key = "s"
-
-    -- Use React-style attributes
     vim.g.user_emmet_settings = {
       javascript = { extends = "jsx" },
+      typescript = { extends = "jsx" },
       javascriptreact = { extends = "jsx" },
       typescriptreact = { extends = "jsx" },
       jsx = {
         attribute_name = {
           class = "className",
+          ["for"] = "htmlFor",
         },
       },
     }
-
-    -- Place cursor inside element content instead of after </tag>
-    vim.g.user_emmet_expandabbr_key = "<Plug>(emmet-expand-abbr)" -- default
-    vim.g.user_emmet_install_global = 0
-    vim.cmd([[
-      autocmd FileType html,css,javascriptreact,typescriptreact,typescript,javascript EmmetInstall
-    ]])
-
-    -- This makes the cursor land inside the element (not after the closing tag)
     vim.g.user_emmet_expandabbr_position = "text"
+    
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+      command = "EmmetInstall",
+    })
   end,
+  keys = {
+    { "<leader>ss", mode = "i", "<Plug>(emmet-expand-abbr)", desc = "Emmet expand" },
+    { "<leader>ss", mode = "v", "<Plug>(emmet-wrap-with-abbreviation)", desc = "Emmet wrap" },
+  },
 }

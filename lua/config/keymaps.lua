@@ -9,3 +9,12 @@ vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle Fil
 
 -- Map 'nn' in terminal mode to exit to Normal mode
 vim.keymap.set("t", "nn", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Exit terminal mode" })
+
+vim.keymap.set("n", "<leader>fm", function()
+  local ok, conform = pcall(require, "conform")
+  if ok then
+    conform.format({ async = true, lsp_fallback = true })
+  else
+    vim.lsp.buf.format({ async = true })
+  end
+end, { desc = "Format file" })
