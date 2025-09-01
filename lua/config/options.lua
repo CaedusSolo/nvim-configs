@@ -6,7 +6,6 @@ vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.clipboard = "unnamedplus"
-vim.api.nvim_set_hl(0, "CursorLine", { bg = "NONE" })  -- Make the cursor line more transparent
 
 
 return {
