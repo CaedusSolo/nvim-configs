@@ -1,16 +1,14 @@
 return {
   {
-    "projekt0n/github-nvim-theme",
-    name = "github-theme",
-    lazy = false,     -- load immediately
-    priority = 1000,  -- load first
-    config = function()
-      require("github-theme").setup({
-        options = {
-          transparent = false,
-        },
-      })
-      vim.cmd("colorscheme github_dark_default") 
+    "tiagovla/tokyodark.nvim",
+    lazy = false,      
+    priority = 1000,   
+    opts = {
+      transparent_background = false,
+    },          
+    config = function(_, opts)
+      require("tokyodark").setup(opts)  
+      vim.cmd.colorscheme("tokyodark")  
     end,
   },
 }
