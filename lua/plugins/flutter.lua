@@ -4,10 +4,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "stevearc/dressing.nvim",
-
-      -- Make sure cmp is loaded BEFORE flutter-tools
-      "hrsh7th/nvim-cmp",
-      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       -- Safe capability loading (prevents cmp_nvim_lsp not found error)
@@ -51,14 +47,6 @@ return {
         capabilities = capabilities,
       })
     end,
-  },
-
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "L3MON4D3/LuaSnip",
-    },
   },
 
   {
