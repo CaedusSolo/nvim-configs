@@ -3,7 +3,7 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
-      javascript = { "prettier" },   
+      javascript = { "prettier" },
       typescript = { "prettier" },
       javascriptreact = { "prettier" },
       typescriptreact = { "prettier" },
@@ -12,7 +12,9 @@ return {
       json = { "prettier" },
       yaml = { "prettier" },
       markdown = { "prettier" },
-      python = { "black" },  -- or "isort", choose one
-    }
+      python = { "black" }, -- or "isort", choose one
+      dart = { "dart_format" },
+    },
   },
 }
+
