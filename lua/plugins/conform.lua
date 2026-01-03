@@ -15,6 +15,7 @@ return {
       python = { "black" },
       ruby = { "rubocop" },
       eruby = { "erb_format" },
+      dart = { " dart-format " },
     },
   },
 }
