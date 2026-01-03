@@ -12,9 +12,12 @@ return {
       json = { "prettier" },
       yaml = { "prettier" },
       markdown = { "prettier" },
-      python = { "black" }, -- or "isort", choose one
-      dart = { "dart_format" },
+      python = { "black" },
+      ruby = { "rubocop" },
+      eruby = { "erb_format" },
+      dart = {" dart-format "},
     },
   },
 }
+
 
