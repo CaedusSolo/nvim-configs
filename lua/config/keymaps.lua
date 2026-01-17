@@ -7,6 +7,10 @@ vim.keymap.set("n", "<leader>t", ":botright split | terminal<CR>", { noremap = t
 vim.keymap.set("n", "<leader>fe", "<cmd>NvimTreeFocus<CR>", { desc = "Focus File Explorer" }) -- Toggle File Explorer
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
 
+vim.keymap.set("n", "<leader>mr", function()
+  require("render-markdown").toggle()
+end, { desc = "Toggle Markdown rendering" })
+
 -- Map 'nn' in terminal mode to exit to Normal mode
 vim.keymap.set("t", "nn", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Exit terminal mode" })
 
@@ -32,4 +36,3 @@ map("v", "<S-Tab>", "<gv", opts)
 
 -- Insert mode: Shift-Tab unindents one level
 map("i", "<S-Tab>", "<C-d>", opts)
-
