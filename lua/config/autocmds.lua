@@ -35,13 +35,28 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-vim.api.nvim_create_autocmd("ColorScheme", {
+local headings = {
+  { "@markup.heading.1", "#8aa2f7" },
+  { "@markup.heading.2", "#9ece6a" },
+  { "@markup.heading.3", "#e0af68" },
+  { "@markup.heading.4", "#bb9af7" },
+  { "@markup.heading.5", "#7dcfff" },
+  { "@markup.heading.6", "#c0caf5" },
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
   callback = function()
-    vim.api.nvim_set_hl(0, "@markup.heading.1", { fg = "#8aa2f7", bold = true })
-    vim.api.nvim_set_hl(0, "@markup.heading.2", { fg = "#9ece6a", bold = true })
-    vim.api.nvim_set_hl(0, "@markup.heading.3", { fg = "#e0af68", bold = true })
-    vim.api.nvim_set_hl(0, "@markup.heading.4", { fg = "#bb9af7" })
-    vim.api.nvim_set_hl(0, "@markup.heading.5", { fg = "#7dcfff" })
-    vim.api.nvim_set_hl(0, "@markup.heading.6", { fg = "#c0caf5" })
+    for _, h in ipairs(headings) do
+      vim.api.nvim_set_hl(0, h[1], {
+        fg = h[2],
+        bg = "NONE", -- remove background
+        bold = false,
+        underline = false,
+        italic = false,
+      })
+    end
+
+    vim.api.nvim_set_hl(0, "@spell", { bg = "NONE" })
   end,
 })
